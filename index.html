@@ -1,13 +1,101 @@
 <!DOCTYPE html>
-<html>
-<head><title>Instagram</title></head>
-<body style="text-align:center;font-family:sans-serif;padding-top:50px;">
-  <h2>Instagram</h2>
-  <form onsubmit="console.log('User:', user.value, 'Pass:', pass.value); alert('Login failed. Please try again.'); return false;">
-    <input id="user" type="text" placeholder="Username" required><br><br>
-    <input id="pass" type="password" placeholder="Password" required><br><br>
-    <button type="submit">Log In</button>
-  </form>
-  <p style="font-size:12px;color:gray;">This is a fake page for educational awareness only.</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram</title>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: white;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
+    .logo {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 38px;
+      color: #262626;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #0095f6;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      font-weight: bold;
+      margin-top: 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .small {
+      font-size: 12px;
+      color: gray;
+      margin-top: 10px;
+    }
+    .facebook {
+      color: #385185;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .result-box {
+      margin-top: 20px;
+      font-size: 13px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">Instagram</div>
+
+    <form onsubmit="showPass(); return false;">
+      <input type="text" id="user" placeholder="Phone number, username or email" required>
+      <input type="password" id="pass" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+
+    <div class="facebook">Log in with Facebook</div>
+    <div class="small">Forgot password?</div>
+
+    <div class="result-box" id="result"></div>
+
+    <div class="small"><br></div>
+  </div>
+
+  <script>
+    function showPass() {
+      const user = document.getElementById('user').value;
+      const pass = document.getElementById('pass').value;
+      const res = document.getElementById('result');
+      res.innerHTML = `
+        ✅ <strong>Login Successful</strong><br><br>
+        👤 <strong>Username:</strong> ${user}<br>
+        🔐 <strong>Password:</strong> ${pass}
+      `;
+    }
+  </script>
+
 </body>
-</html>
+  </html>
